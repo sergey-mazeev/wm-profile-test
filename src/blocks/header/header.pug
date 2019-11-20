@@ -1,2 +1,8 @@
 mixin header
-	header.header header-meader
+	header.header
+		.container
+			nav.header__nav
+				button.header__burger(type="button", aria-label="Развернуть меню")
+				ul
+					each i, index in [['Личная информация', 'profile'], ['Опыт', 'expirience'], ['JavaScript', 'javascript'], ['О себе', 'about']]
+						li: a(href=`#${i[1]}` class= index === 0 ? 'active' : '')= i[0]
