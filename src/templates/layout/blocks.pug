@@ -1,11 +1,66 @@
-mixin footer
-	footer.footer footer-muterr
+mixin form
+	form.form.form_profile
+		fieldset.form__fieldset.form__fieldset_profile#profile
+			legend Личная информация
+			.form__item.form__item_labeled
+				input#input-name(type="text", name="name", value="Мазеев Сергей Сергеевич", required)
+				label(for="input-name") ФИО
+			.form__item
+				select(name="birthyear", value="1991")
+					-let year = 2010
+					while year > 1959
+						if year === 1991
+							option(value=year, selected)= year
+						else
+							option(value=year)= year
+						option(value=year)= year
+						-year -= 1
+			.form__item.form__item_labeled
+				input#input-city(type="text", name="city", value="Екатеринбург", required)
+				label(for="input-city") Место проживания
+			.form__item.form__item_labeled
+				input#input-skype(type="text", name="skype", value="silmarion@live.ru", required)
+				label(for="input-skype") Skype
+			.form__item.form__item_labeled
+				input#input-email(type="email", name="email", value="sergey.mazeev@gmail.com", required)
+				label(for="input-email") E-mail
+
+		fieldset.form__fieldset.form__fieldset_expirience#expirience
+			legend Расскажите о своем опыте
+			each exp, expIndex in ["БЭМ/OOCSS", "Верстаю семантично", "Webpack", "Stylus/LESS/SASS", "ES2015/ES2016", "jQuery", "Работаю с SVG", "Gulp/GRUNT", "Ипользую Git"]
+				.form__item.form__item_checkbox
+					if expIndex === 2
+						input(type="checkbox", name="expirience", value= exp, id=`exp-checkbox-${expIndex}`)
+					else
+						input(type="checkbox", name="expirience", value= exp, id=`exp-checkbox-${expIndex}`, checked)
+					label(for=`exp-checkbox-${expIndex}`)= exp
+
+		fieldset.form__fieldset.form__fieldset_js#javascript
+			legend Уровень владения JavaScript
+			.form-item.form-item_range
+				input#range-value.range-value(type="text", name="range-value", hidden)
+				.range-slider
+					.range-slider__pins
+						.range-slider__pin.range-slider__pin_1(data-slider-value="0") Не владею
+						.range-slider__pin.range-slider__pin_2(data-slider-value="1") Использую готовые<br>решения
+						.range-slider__pin.range-slider__pin_3(data-slider-value="2") Использую готовые решения<br>и умею их переделывать
+						.range-slider__pin.range-slider__pin_4(data-slider-value="3") Пишу сложный JS с нуля
+					#range-slider.range-slider__wrapper
+
+
+		fieldset.form__fieldset.form__fieldset_about#about
+			legend Расскажите о себе <div>Напишите несколько предложений, чем привлекла наша вакансия и что вы ожидаете от работы у нас.</div>
+			.form__item.form__item_textarea
+				textarea(name="about", placeholder="Понравилась тем, что...")
+
+		.form__actions
+			input.btn.btn_main(type="submit", value="Готово")
 
 mixin header
 	header.header
 		.container
 			nav.header__nav
-				button.header__burger(type="button", aria-label="Развернуть меню")
+				button.header__burger#header__burger(type="button", aria-label="Развернуть меню")
 				ul
 					each i, index in [['Личная информация', 'profile'], ['Опыт', 'expirience'], ['JavaScript', 'javascript'], ['О себе', 'about']]
-						li: a(href=`#${i[1]}` class= index === 0 ? 'active' : '')= i[0]
+						li: a.smooth-link(href=`#${i[1]}` class= index === 0 ? 'active' : '')= i[0]

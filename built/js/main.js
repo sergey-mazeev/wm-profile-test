@@ -1,3 +1,5 @@
+'use strict';
+
 window.addEventListener('load', () => {
 
   // класс для активного/заполненного input
@@ -12,14 +14,14 @@ window.addEventListener('load', () => {
         else {
           input.parentElement.classList.remove('form__item_filled');
         }
-      })
+      });
     });
 
     [...inputs].map(input => {
       if (input.value.trim() !== '') {
         input.parentElement.classList.add('form__item_filled');
       }
-    })
+    });
   }
 
   // range slider
@@ -54,13 +56,13 @@ window.addEventListener('load', () => {
     [...pins].map(pin => {
       pin.addEventListener('click', () => {
         const value = Number(pin.getAttribute('data-slider-value'));
-        rangeSlider.noUiSlider.set([0, value, 3])
-      })
-    })
+        rangeSlider.noUiSlider.set([0, value, 3]);
+      });
+    });
   }
 
   // Плавный скролл
-  const links = document.querySelectorAll('.smooth-link')
+  const links = document.querySelectorAll('.smooth-link');
   if (links.length) {
     [...links].map(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -69,7 +71,7 @@ window.addEventListener('load', () => {
           behavior: 'smooth'
         });
       });
-    })
+    });
   }
 
 
@@ -94,6 +96,7 @@ window.addEventListener('load', () => {
     e.preventDefault();
     burger.classList.toggle('header__burger_open');
     burger.nextElementSibling.classList.toggle('active');
-  })
+  });
 
 });
+//# sourceMappingURL=main.js.map

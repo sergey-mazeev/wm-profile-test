@@ -4,7 +4,7 @@ $base-font: "Roboto", "Helvetica", $arial;
 //$second-font: "HarmoniaSansProCyr";
 
 // grid
-$container: 808px; // That's where fluid becomes fixed
+$container: 808/16+em; // That's where fluid becomes fixed
 $base-v-margin: 20px; // The mother of all margins. Usually = base line height
 
 // media
@@ -16,8 +16,7 @@ $media-retina: "screen and (min-device-pixel-ratio: 1.5), screen and (-webkit-mi
 $retina: "min-resolution: 1.5dppx";
 
 // custom color
-$c_purple: #a675f2;
-$c_red: #ff4167;
+$c_accent: #435993;
 
 $base-text-color: #1c1c1c;
 $second-text-color: #666666;

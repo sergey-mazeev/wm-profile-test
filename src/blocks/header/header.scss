@@ -2,6 +2,10 @@
 	background-color: #ffffff;
   padding-top: 2.15em;
   padding-bottom: 1.85em;
+	@media screen and (max-width: 768px) {
+		height: 0;
+		padding: 0;
+	}
 	&__nav {
 		font-size: .875em;
     font-weight: 300;
@@ -12,10 +16,40 @@
 			display: flex;
 			justify-content: center;
 			align-items: baseline;
+			@media screen and (max-width: 768px) {
+				position: fixed;
+				width: 100vw;
+				background-color: #ffffff;
+				top: 0;
+				left: 0;
+				box-shadow: 0 .15em 1.5em rgba(0, 0, 0, .25);
+				padding-top: 2.5em;
+				padding-bottom: 1.5em;
+				display: block;
+				font-size: 1.5em;
+				z-index: 14;
+				transition: all .5s ease-out;
+				transform: translateY(-100%);
+				visibility: hidden;
+				opacity: 0;
+				will-change: transform, opacity, visibility;
+				&.active {
+					transform: translateY(0);
+					visibility: visible;
+					opacity: 1;
+				}
+			}
 		}
 		li {
       margin-left: 2.65em;
       margin-right: 2.65em;
+			@media screen and (max-width: 768px) {
+				margin-left: auto;
+				margin-right: auto;
+				width: 100%;
+				max-width: 280px;
+				margin-bottom: .7em;
+			}
 		}
 		a {
       display: block;
@@ -33,9 +67,22 @@
       &:active {
         color: #1c1c1c;
       }
+			@media screen and (max-width: 768px) {
+				display: inline-block;
+			}
 		}
+		
 	}
 	&__burger {
 		display: none;
+		@media screen and (max-width: 768px) {
+			display: block;
+			@include burger-button(28px, 4px, #ffffff);
+			box-shadow: 0 0 4em rgba(#ffffff, 1);
+			position: fixed;
+			top: 15px;
+			right: 15px;
+			z-index: 15;
+		}
 	}
 }

@@ -661,3 +661,57 @@
 	margin-left: $width;
 	margin-right: $width;
 }
+
+@mixin burger-button($width: 28px, $thickness: 4px, $color: #000000, $margin: 5px) {
+	border: 0;
+	background: none;
+	outline: 0;
+	padding: 0;
+	cursor: pointer;
+	color: $color;
+	
+	border-bottom: $thickness solid currentColor;
+	width: $width;
+	
+	transition: border-bottom 1s ease-in-out, border-color .35s ease;
+	
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+	&:before {
+		content: "";
+		display: block;
+		border-bottom: $thickness solid currentColor;
+		width: 100%;
+		margin-bottom: $margin;
+		transition: transform 0.5s ease-in-out, color .35s ease;
+	}
+	
+	&:after {
+		content: "";
+		display: block;
+		border-bottom: $thickness solid currentColor;
+		width: 100%;
+		margin-bottom: $margin;
+		transition: transform 0.5s ease-in-out, color .35s ease;
+	}
+	&_dark {
+		color: #1c1c1c;
+	}
+	&_open {
+		border-bottom: $thickness solid transparent;
+		transition: border-bottom 0.8s ease-in-out;
+		color: #1c1c1c;
+		
+		&:before {
+			transform: rotate(-405deg) translateY(1px) translateX(-3px);
+			transition: transform 0.5s ease-in-out;
+		}
+		
+		&:after {
+			transform: rotate(405deg) translateY(-4px) translateX(-5px);
+			transition: transform 0.5s ease-in-out;
+		}
+	}
+}
