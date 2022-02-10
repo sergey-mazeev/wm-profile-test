@@ -48,7 +48,7 @@
     "gulp-ttf2woff2": "^2.0.2",
     "gulp-uglify": "^3.0.1",
     "jquery": "^3.3.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-babel-minify": "^7.0.0",
     "rollup-plugin-commonjs": "^8.3.0",
